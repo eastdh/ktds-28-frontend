@@ -1,0 +1,60 @@
+body {
+  margin: 0px;
+}
+
+.box-wrapper {
+  width: 500px;
+  /* background-color: magenta; */
+}
+
+.box {
+  /* Content Box */
+  /* 
+    width: 500px; ==> 컨텐츠 영역의 width를 500px로 wjddmlgksek.
+    padding, border가 추가되면 박스의 크기가 함께 커진다.
+   */
+  width: 500px;
+
+  /* 경계선 추가 - 박스의 모든 방향 경계선을 생성 */
+  border: 3px outset #f00;
+  /* 모서리를 둥글게 처리한다. */
+  border-radius: 7px;
+
+  /* 박스의 오른쪽에만 경계선 */
+  /* border-right: 3px solid #f00; */
+
+  /* 박스의 왼쪽에 경계선 생성 */
+  /* border-left: 6px solid #f00; */
+
+  /* 컨텐트 영역과 경계선 영역 사이의 여백 */
+  padding: 1rem 5px;
+
+  /* 경계선 바깥 쪽 여백 => 박스 간의 여백을 생성 */
+  margin: 1rem 5px;
+}
+
+.border-box {
+  /* border-box 스타일로 정의 */
+  box-sizing: border-box;
+  width: 300px;
+
+  /* 패딩, 보더, 마진 원하는 대로 할당 */
+  border: 6px double #00f;
+  padding: 1rem 5px;
+  margin: 1rem 5px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #000;
+  border-radius: 500px;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+.no-padding {
+  padding: 0px;
+}
