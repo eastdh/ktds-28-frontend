@@ -1,0 +1,33 @@
+.sprite {
+  border: 1px solid red;
+  background-image: url("../images/naver_sprite.png");
+  background-repeat: no-repeat;
+}
+
+.papago {
+  width: 135px;
+  height: 135px;
+
+  /* 백그라운드 이미지 위치 조정 */
+  background-position: -2px 0px;
+}
+
+.smart-store-light,
+.smart-store-dark {
+  width: 145px;
+  height: 145px;
+}
+
+.smart-store-light {
+  background-position: -160px 0px;
+}
+
+.smart-store-dark {
+  background-position: 0px -140px;
+}
+
+.naver-membership {
+  width: 128px;
+  height: 32px;
+  background-position: 0px -614px;
+}
