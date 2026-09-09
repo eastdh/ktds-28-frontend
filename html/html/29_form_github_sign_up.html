@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>GitHub Signup</title>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../css/29_form_github_sign_up.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h3>Sign up for GitHub</h3>
+      <button>Continue with Google</button>
+      <button>Continue with Apple</button>
+      <div class="seperator">
+        <span>or</span>
+      </div>
+
+      <label for="user-email">Email<sup></sup></label>
+      <input
+        type="email"
+        name=""
+        id="user-email"
+        placeholder="Email"
+        required
+      />
+      <label for="user-password">Password<sup></sup></label>
+      <input
+        type="password"
+        name=""
+        id="user-password"
+        placeholder="Password"
+        minlength="8"
+        maxlength="15"
+        required
+      />
+      <div class="rules">
+        Password should be at least 15 characters OR at least 8 characters
+        including a number and a lowercase letter.
+      </div>
+      <label for="user-name">Username<sup></sup></label>
+      <input
+        type="text"
+        name=""
+        id="user-name"
+        placeholder="Username"
+        required
+      />
+      <div class="rules">
+        Username may only contain alphanumeric characters or single hyphens, and
+        cannot begin or end with a hyphen.
+      </div>
+      <label for="user-country">Your Country/Region<sup></sup></label>
+      <select name="Country/Region" id="user-country" required>
+        <option value="">Afghanistan</option>
+        <option value="">Afghanistan</option>
+        <option value="">Afghanistan</option>
+        <option value="">Afghanistan</option>
+        <option value="">Afghanistan</option>
+        <option value="">Afghanistan</option>
+      </select>
+      <div class="rules">
+        For compliance reasons, we're required to collect country information to
+        send you occasional updates and announcements.
+      </div>
+
+      <button class="submit">Create account</button>
+    </div>
+  </body>
+</html>

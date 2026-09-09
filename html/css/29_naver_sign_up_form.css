@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #333;
+}
+
+.input-area {
+  font-size: 0;
+  width: 700px;
+  margin: 10px auto;
+  border-radius: 5px;
+
+  & > .input-field {
+    width: 100%;
+    display: block;
+    border: 1px solid #ccc;
+    border-bottom: 0;
+    font-size: 0;
+
+    &:first-of-type {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    &:last-of-type {
+      border-bottom: 1px solid #ccc;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    & > label {
+      vertical-align: middle;
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin: 0.5rem;
+
+      border-radius: 5px;
+
+      background-image: url(../images/naver_sprite.png);
+      background-repeat: no-repeat;
+    }
+
+    & > input[type] {
+      vertical-align: middle;
+      width: calc(100% - 32px - 16px);
+      padding: 1rem 0.5rem;
+      border: 0;
+      border-radius: 5px;
+
+      font-size: 1rem;
+    }
+
+    & > p {
+      display: inline-block;
+      vertical-align: middle;
+      width: calc(100% - 32px - 16px);
+      margin: 0;
+      font-size: 1rem;
+
+      & > span {
+        vertical-align: top;
+        font-size: 0.75rem;
+        color: #03c75a;
+      }
+    }
+  }
+}
+
+/* 선택된 radio의 label 스타일 */
+label:has(+ input[type="radio"]:checked) {
+  border: 1px solid #03c75a;
+  color: #03c75a;
+}
+
+/* 선택되지 않은 radio의 label 스타일 */
+label:has(+ input[type="radio"]) {
+  border: 1px solid #bbb;
+  color: #bbb;
+}
+
+label + input[type="radio"] {
+  display: none;
+}
+
+.radio-area {
+  display: inline-block;
+  font-size: 0;
+
+  border-radius: 10px;
+  margin: 1rem 2.45rem;
+
+  & > .radio-field {
+    display: inline-block;
+  }
+
+  & label {
+    font-size: 1rem;
+    font-weight: 600;
+
+    padding: 0.5rem 3rem;
+
+    cursor: pointer;
+
+    &[for="male"],
+    &[for="local"] {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    &[for="female"],
+    &[for="foreigner"] {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+}
+label:has(+ input[type="checkbox"]) {
+  cursor: pointer;
+}
+label:has(+ input[type="checkbox"]:checked) {
+  border: 1px solid #00ba6b;
+  border-radius: 50%;
+
+  background-position: -759px -879px;
+}
+
+label:has(+ input[type="checkbox"]:not(:checked)) {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+
+  background-position: -723px -879px;
+}
+
+label + input[type="checkbox"] {
+  display: none;
+}
+
+label[for="id"],
+label[for="name"] {
+  background-color: #00ba6b;
+  background-position: -433px -782px;
+}
+label[for="password"] {
+  background-position: -409px -253px;
+}
+label[for="email"] {
+  background-position: -615px -879px;
+}
+label[for="birth-date"] {
+  background-position: -449px -393px;
+}
+label[for="telecom"],
+label[for="phone"] {
+  background-size: 484px 476px;
+  background-color: #00ba6b;
+  background-position: -227px -148px;
+}
