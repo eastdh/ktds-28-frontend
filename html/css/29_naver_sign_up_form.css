@@ -158,3 +158,15 @@ label[for="phone"] {
   background-color: #00ba6b;
   background-position: -227px -148px;
 }
+
+.input-field:has(input#id) {
+  & > input {
+    width: calc(100% - 32px - 16px - 100px);
+  }
+
+  &::after {
+    content: "@naver.com";
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+}
