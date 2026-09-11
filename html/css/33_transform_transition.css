@@ -1,0 +1,33 @@
+/** @format */
+/* 33_transform_transition.css */
+body {
+  margin: 0;
+}
+.flex {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & > img {
+    width: 20vw;
+
+    /* transition: 이벤트_대상 애니메이션_실행_시간 [가속도종류] [애니메이션 딜레이 시간],; */
+    transition: transform 3s;
+
+    &:hover {
+      /* transform: translate(30px, 30px); */
+      /* transform: scale(2, 2); */
+      /* transform: rotate(-30deg); */
+      transform: translate(30px, 30px) scale(2, 2) rotate(100turn);
+    }
+
+    & + .title {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-top: 10px;
+    }
+  }
+}
