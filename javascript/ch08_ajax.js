@@ -1,0 +1,97 @@
+onload = function () {
+  const userButton = document.querySelector(".load-git-users");
+  userButton.onclick = function () {
+    function fillUsers(userList) {
+      const template = document.querySelector("#github-user-template");
+      const users = document.querySelector(".github-users");
+
+      users.innerHTML = "";
+
+      userList.forEach(function ({ html_url, avatar_url, login }) {
+        const userDom = document.importNode(template.content, true);
+        userDom.querySelector("a").setAttribute("href", html_url);
+        userDom.querySelector("img").setAttribute("src", avatar_url);
+        userDom.querySelector(".user-name").innerText = login;
+        users.append(userDom);
+      });
+    }
+    (async function () {
+      try {
+        const fetchResult = await fetch("https://api.github.com/users");
+        const body = await fetchResult.json();
+        console.log(body);
+        fillUsers(body);
+      } catch (e) {
+        console.log(e.message);
+      }
+    })();
+  };
+
+  // post 불러오기 추가 작성
+  const loadPostsBtn = document.querySelector(".load-posts");
+  loadPostsBtn.onclick = function () {
+    function fillPosts(postsList) {
+      const template = document.querySelector("#post-item-template");
+      const posts = document.querySelector(".posts");
+
+      posts.innerHTML = "";
+
+      postsList.forEach(function ({ userId, id, title, body }) {
+        const postDom = document.importNode(template.content, true);
+        postDom.querySelector("li").dataset.userId = userId;
+        postDom.querySelector("li").dataset.id = id;
+        postDom.querySelector(".title").innerText = title;
+        postDom.querySelector(".body").innerText = body;
+
+        posts.append(postDom);
+      });
+    }
+
+    (async function () {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts",
+        );
+        const responseBody = await response.json();
+
+        fillPosts(responseBody);
+      } catch (err) {
+        console.log("err.message", err.message);
+      }
+    })();
+  };
+
+  const loadCommentsBtn = document.querySelector(".load-comments");
+  loadCommentsBtn.onclick = function () {
+    function fillComments(commentsList) {
+      const template = document.querySelector("#comments-item-template");
+      const comments = document.querySelector(".comments");
+
+      comments.innerHTML = "";
+      console.log("comments.children.length", comments.children.length);
+
+      commentsList.forEach(function ({ postId, name, email, body }) {
+        const commentDom = document.importNode(template.content, true);
+        commentDom.querySelector("li").dataset.postId = postId;
+        commentDom.querySelector(".name").innerText = name;
+        commentDom.querySelector(".email").innerText = email;
+        commentDom.querySelector(".body").innerText = body;
+
+        comments.append(commentDom);
+      });
+    }
+    // 즉시 실행 함수
+    (async function () {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/comments",
+        );
+        const body = await response.json();
+        // console.log("body: ", body);
+        fillComments(body);
+      } catch (e) {
+        console.error("e.message", e.message);
+      }
+    })();
+  };
+};
