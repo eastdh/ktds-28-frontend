@@ -7,14 +7,21 @@
     <script src="./tmdb.js"></script>
   </head>
   <body>
-    <div class="cards-wrapper">
+    <div class="cards-wrapper"></div>
+
+    <template id="movie-template">
       <div class="movie-card">
-        <div class="poster">
+        <img
+          src="https://image.tmdb.org/t/p/w600_and_h900_face/8mLepBa5l591xFidRpn65xV7hb4.jpg"
+          alt=""
+          class="poster"
+        />
+        <div class="movie-details">
           <div class="title">스파이더맨: 브랜드 뉴 데이</div>
           <div class="original-title">Spider-Man: Brand New Day</div>
           <div class="release-date">2026-07-29</div>
         </div>
       </div>
-    </div>
+    </template>
   </body>
 </html>

@@ -24,6 +24,7 @@
 
 onload = async () => {
   const movies = await getMovies();
+  fillMovies(movies);
 };
 
 /**
@@ -42,7 +43,7 @@ async function getMovies() {
   //
   try {
     const response = await fetch(
-      "https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=ko-KR&page=1&sort_by=popularity.desc",
+      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=ko-KR&page=1&sort_by=popularity.desc",
       options,
     );
     const movieRawData = await response.json();
@@ -50,4 +51,24 @@ async function getMovies() {
   } catch (err) {
     console.error("err.message", err.message);
   }
+}
+
+/**
+ * movie data에서 필요한 데이터를 추출하여
+ * movie-card DOM을 추가함
+ * @param {Array} movies
+ */
+function fillMovies(movies) {
+  const template = document.querySelector("#movie-template");
+  const movieCardWrapper = document.querySelector(".cards-wrapper");
+
+  movies.forEach(({ title, original_title, release_date, poster_path }) => {
+    const movieCardDom = document.importNode(template.content, true);
+    const imgUrl = "https://image.tmdb.org/t/p/w600_and_h900_face";
+    movieCardDom.querySelector("img").setAttribute("src", imgUrl + poster_path);
+    movieCardDom.querySelector(".title").innerText = title;
+    movieCardDom.querySelector(".original-title").innerText = original_title;
+    movieCardDom.querySelector(".release-date").innerText = release_date;
+    movieCardWrapper.append(movieCardDom);
+  });
 }
