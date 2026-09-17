@@ -2,11 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+
+  max-width: 1000px;
+  margin: 0 auto;
   & > .movie-card {
     position: relative;
 
     display: flex;
     flex-basis: 200px;
+    flex-grow: 1;
+    flex-shrink: 1;
 
     & > img {
       width: 100%;
